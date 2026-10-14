@@ -1,0 +1,4 @@
+# Keep client materials and unrelated local exercises out of this public repo
+/files/
+/problem solving/
+.DS_Store
