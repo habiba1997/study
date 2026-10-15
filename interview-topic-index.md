@@ -544,6 +544,164 @@ Use one short, concrete question at a time, under 100 words, with a scenario or 
 
 Continuity: the newer [Gaps notes](Gaps/README.md) supersede the older handoff where they overlap. JWT has now been practiced; revisit payload/signature terminology, decoding versus signature verification, and `exp`/`nbf`/`iss`/`aud` checks. Include short deployment-name recall and gradual DDD scenarios. Earlier pending prompts include `Arrays.asList` versus `Collections.singletonList` versus `ArrayList`, and event sourcing versus an audit log. Use recorded answers to guide later practice; do not infer mastery from topic presence.
 
+
+## Additional terminology found in the coverage audit
+
+A second audit compared source inline code, named APIs, acronyms, emphasized concepts, and PDF identifiers against the index. It found the following details that were not individually searchable in the first version, even where their parent topic was present. These are source-derived lookup terms, not separate claims of mastery. Incidental example class names and sample values remain excluded.
+
+Legacy names and source errors are preserved for recognition: `jakarta.persistence.@Cacheable` and `org.springframework.cache.annotation.@Cacheable` are source notation, not valid fully qualified Java annotation syntax. The PDF's `SimpleGrantedAuthorities` refers to `SimpleGrantedAuthority`; `UsernamePasswordToken` occurs in its security example and should not be confused with Spring Security's `UsernamePasswordAuthenticationToken`. `AtlassianCrowdAuthenticationProvider` is the PDF's custom provider example. Deprecated methods and old Spring Security configuration calls should be studied alongside their modern replacements.
+
+### Java APIs and runtime details
+
+- `BigDecimal` — [java-spring-cheatsheet.md L892](java-spring-cheatsheet.md?plain=1#L892).
+- `getFirst()` — [java-spring-cheatsheet.md L1596](java-spring-cheatsheet.md?plain=1#L1596).
+- `getLast()` — [java-spring-cheatsheet.md L1596](java-spring-cheatsheet.md?plain=1#L1596).
+- `reversed()` — [java-spring-cheatsheet.md L1596](java-spring-cheatsheet.md?plain=1#L1596).
+- `lock()` — [java-spring-cheatsheet.md L381](java-spring-cheatsheet.md?plain=1#L381), [Java PDF p. 77](java.pdf#page=77).
+- `lockInterruptibly()` — [java-spring-cheatsheet.md L382](java-spring-cheatsheet.md?plain=1#L382).
+- `tryLock()` — [java-spring-cheatsheet.md L382](java-spring-cheatsheet.md?plain=1#L382).
+- `unlock()` — [java-spring-cheatsheet.md L381](java-spring-cheatsheet.md?plain=1#L381), [Java PDF p. 77](java.pdf#page=77).
+- `RecursiveTask<V>` — [java-spring-cheatsheet.md L279](java-spring-cheatsheet.md?plain=1#L279).
+- `finalize()` — [java-spring-cheatsheet.md L1600](java-spring-cheatsheet.md?plain=1#L1600).
+- `JEP 396` — [java-spring-cheatsheet.md L1577](java-spring-cheatsheet.md?plain=1#L1577).
+- `JEP 411` — [java-spring-cheatsheet.md L1587](java-spring-cheatsheet.md?plain=1#L1587).
+- `JEP 444` — [java-spring-cheatsheet.md L1595](java-spring-cheatsheet.md?plain=1#L1595).
+- `JEP 451` — [java-spring-cheatsheet.md L1599](java-spring-cheatsheet.md?plain=1#L1599).
+- `JEP 486` — [java-spring-cheatsheet.md L1604](java-spring-cheatsheet.md?plain=1#L1604).
+- `JEP 503` — [java-spring-cheatsheet.md L1606](java-spring-cheatsheet.md?plain=1#L1606).
+
+### Spring lifecycle, web, security, and migration details
+
+- `SpringApplication.run()` — [java-spring-cheatsheet.md L572](java-spring-cheatsheet.md?plain=1#L572).
+- `InitializingBean.afterPropertiesSet()` — [java-spring-cheatsheet.md L577](java-spring-cheatsheet.md?plain=1#L577).
+- `DisposableBean.destroy()` — [java-spring-cheatsheet.md L579](java-spring-cheatsheet.md?plain=1#L579).
+- `Access-Control-Max-Age` — [java-spring-cheatsheet.md L505](java-spring-cheatsheet.md?plain=1#L505), [Java PDF p. 30](java.pdf#page=30).
+- `/actuator/health` — [java-spring-cheatsheet.md L1564](java-spring-cheatsheet.md?plain=1#L1564).
+- `/conditions` — [java-spring-cheatsheet.md L773](java-spring-cheatsheet.md?plain=1#L773).
+- `/health` — [java-spring-cheatsheet.md L773](java-spring-cheatsheet.md?plain=1#L773).
+- `/info` — [java-spring-cheatsheet.md L773](java-spring-cheatsheet.md?plain=1#L773).
+- `/loggers` — [java-spring-cheatsheet.md L773](java-spring-cheatsheet.md?plain=1#L773).
+- `/userinfo` — [java-spring-cheatsheet.md L1061](java-spring-cheatsheet.md?plain=1#L1061).
+- `redirect_uri` — [java-spring-cheatsheet.md L1053](java-spring-cheatsheet.md?plain=1#L1053), [Java PDF p. 112](java.pdf#page=112).
+- `WebSecurityConfigurerAdapter.authenticationManagerBean()` — [java-spring-cheatsheet.md L1527](java-spring-cheatsheet.md?plain=1#L1527).
+- `configure(HttpSecurity http)` — [java-spring-cheatsheet.md L1523](java-spring-cheatsheet.md?plain=1#L1523), [Java PDF p. 115](java.pdf#page=115).
+- `authorizeHttpRequests()` — [java-spring-cheatsheet.md L1005](java-spring-cheatsheet.md?plain=1#L1005).
+- `authorizeRequests()` — [java-spring-cheatsheet.md L1005](java-spring-cheatsheet.md?plain=1#L1005), [Java PDF p. 115](java.pdf#page=115).
+- `antMatchers()` — [java-spring-cheatsheet.md L1005](java-spring-cheatsheet.md?plain=1#L1005).
+- `mvcMatchers()` — [java-spring-cheatsheet.md L1525](java-spring-cheatsheet.md?plain=1#L1525).
+- `regexMatchers()` — [java-spring-cheatsheet.md L1525](java-spring-cheatsheet.md?plain=1#L1525).
+- `requestMatchers()` — [java-spring-cheatsheet.md L1005](java-spring-cheatsheet.md?plain=1#L1005).
+- `spring.mvc.pathmatch.matching-strategy` — [java-spring-cheatsheet.md L1559](java-spring-cheatsheet.md?plain=1#L1559).
+- `spring.jpa.show-sql` — [java-spring-cheatsheet.md L862](java-spring-cheatsheet.md?plain=1#L862).
+- `application-dev.yml` — [java-spring-cheatsheet.md L769](java-spring-cheatsheet.md?plain=1#L769).
+- `jakarta.annotation` — [java-spring-cheatsheet.md L1138](java-spring-cheatsheet.md?plain=1#L1138).
+- `javax.annotation-api` — [java-spring-cheatsheet.md L1138](java-spring-cheatsheet.md?plain=1#L1138), [Java PDF p. 129](java.pdf#page=129).
+- `spring-security-core` — [java-spring-cheatsheet.md L1134](java-spring-cheatsheet.md?plain=1#L1134), [Java PDF p. 129](java.pdf#page=129).
+- `spring-boot-starter-logging` — [java-spring-cheatsheet.md L1333](java-spring-cheatsheet.md?plain=1#L1333).
+
+### Persistence, testing, and Maven details
+
+- `findByLastNameAndActiveTrue` — [java-spring-cheatsheet.md L790](java-spring-cheatsheet.md?plain=1#L790).
+- `lower()` — [java-spring-cheatsheet.md L939](java-spring-cheatsheet.md?plain=1#L939).
+- `@JdbcTypeCode(SqlTypes.JSON)` — [habiba-interview-prep-cheatsheet.md L70](habiba-interview-prep-cheatsheet.md?plain=1#L70).
+- `jakarta.persistence.@Cacheable` — [java-spring-cheatsheet.md L883](java-spring-cheatsheet.md?plain=1#L883).
+- `org.springframework.cache.annotation.@Cacheable` — [java-spring-cheatsheet.md L884](java-spring-cheatsheet.md?plain=1#L884).
+- `mockStatic()` — [java-spring-cheatsheet.md L23](java-spring-cheatsheet.md?plain=1#L23).
+- `@ExtendWith(MockitoExtension.class)` — [java-spring-cheatsheet.md L1224](java-spring-cheatsheet.md?plain=1#L1224), [Java PDF p. 52](java.pdf#page=52).
+- `@ExtendWith(SpringExtension.class)` — [java-spring-cheatsheet.md L1224](java-spring-cheatsheet.md?plain=1#L1224).
+- `@RunWith(MockitoJUnitRunner.class)` — [java-spring-cheatsheet.md L1219](java-spring-cheatsheet.md?plain=1#L1219), [Java PDF p. 52](java.pdf#page=52).
+- `@RunWith(SpringRunner.class)` — [java-spring-cheatsheet.md L1219](java-spring-cheatsheet.md?plain=1#L1219), [Java PDF p. 50](java.pdf#page=50).
+- `doReturn(x).when(spy).method()` — [java-spring-cheatsheet.md L1184](java-spring-cheatsheet.md?plain=1#L1184).
+- `when(spy.method())` — [java-spring-cheatsheet.md L1184](java-spring-cheatsheet.md?plain=1#L1184).
+- `assertThat(x).contains(...)` — [java-spring-cheatsheet.md L1214](java-spring-cheatsheet.md?plain=1#L1214).
+- `spring-boot-dependencies` — [java-spring-cheatsheet.md L1359](java-spring-cheatsheet.md?plain=1#L1359).
+- `<build>` — [java-spring-cheatsheet.md L1299](java-spring-cheatsheet.md?plain=1#L1299), [Java PDF p. 107](java.pdf#page=107).
+- `<dependencies>` — [java-spring-cheatsheet.md L1352](java-spring-cheatsheet.md?plain=1#L1352), [Java PDF p. 100](java.pdf#page=100).
+- `<modules>` — [java-spring-cheatsheet.md L1368](java-spring-cheatsheet.md?plain=1#L1368), [Java PDF p. 103](java.pdf#page=103).
+- `<packaging>pom</packaging>` — [java-spring-cheatsheet.md L1362](java-spring-cheatsheet.md?plain=1#L1362), [Java PDF p. 103](java.pdf#page=103).
+- `<parent>` — [java-spring-cheatsheet.md L1372](java-spring-cheatsheet.md?plain=1#L1372), [Java PDF p. 104](java.pdf#page=104).
+- `<type>pom</type>` — [java-spring-cheatsheet.md L1329](java-spring-cheatsheet.md?plain=1#L1329), [Java PDF p. 103](java.pdf#page=103).
+- `target/classes` — [java-spring-cheatsheet.md L1273](java-spring-cheatsheet.md?plain=1#L1273).
+- `mvn clean install -Pcoverage` — [java-spring-cheatsheet.md L1396](java-spring-cheatsheet.md?plain=1#L1396).
+- `mvn test` — [habiba-interview-prep-cheatsheet.md L352](habiba-interview-prep-cheatsheet.md?plain=1#L352).
+
+### Architecture and delivery details
+
+- `AWS` — [architecture-patterns-cheat-sheet.md L602](architecture-patterns-cheat-sheet.md?plain=1#L602).
+- `DAO` — [architecture-patterns-cheat-sheet.md L1268](architecture-patterns-cheat-sheet.md?plain=1#L1268).
+- `KafkaTemplate` — [architecture-patterns-cheat-sheet.md L925](architecture-patterns-cheat-sheet.md?plain=1#L925).
+- `docker build` — [habiba-interview-prep-cheatsheet.md L349](habiba-interview-prep-cheatsheet.md?plain=1#L349).
+- `kubectl apply` — [habiba-interview-prep-cheatsheet.md L362](habiba-interview-prep-cheatsheet.md?plain=1#L362).
+
+### Frontend APIs and historical wording
+
+- `ES3` — [frontend-cheatsheet.md L17](frontend-cheatsheet.md?plain=1#L17).
+- `takeUntilDestroyed()` — [frontend-cheatsheet.md L609](frontend-cheatsheet.md?plain=1#L609).
+- `<Suspense>` — [frontend-cheatsheet.md L641](frontend-cheatsheet.md?plain=1#L641).
+- `dispatch()` — [frontend-cheatsheet.md L22](frontend-cheatsheet.md?plain=1#L22).
+- `getState()` — [frontend-cheatsheet.md L22](frontend-cheatsheet.md?plain=1#L22).
+- `store.subscribe()` — [frontend-cheatsheet.md L468](frontend-cheatsheet.md?plain=1#L468).
+- `subscribe()` — [frontend-cheatsheet.md L22](frontend-cheatsheet.md?plain=1#L22).
+- `next(value)` — [architecture-patterns-cheat-sheet.md L953](architecture-patterns-cheat-sheet.md?plain=1#L953).
+- `complete()` — [frontend-cheatsheet.md L606](frontend-cheatsheet.md?plain=1#L606).
+- `error()` — [frontend-cheatsheet.md L607](frontend-cheatsheet.md?plain=1#L607).
+- `.pipe()` — [frontend-cheatsheet.md L602](frontend-cheatsheet.md?plain=1#L602).
+- `.catch()` — [frontend-cheatsheet.md L279](frontend-cheatsheet.md?plain=1#L279).
+- `.finally()` — [frontend-cheatsheet.md L279](frontend-cheatsheet.md?plain=1#L279).
+- `.then()` — [frontend-cheatsheet.md L279](frontend-cheatsheet.md?plain=1#L279).
+- `fn?.()` — [frontend-cheatsheet.md L217](frontend-cheatsheet.md?plain=1#L217).
+- `user?.address?.city` — [frontend-cheatsheet.md L216](frontend-cheatsheet.md?plain=1#L216).
+- `count ?? 10` — [frontend-cheatsheet.md L223](frontend-cheatsheet.md?plain=1#L223).
+
+### JWT recall notation
+
+- `header.payload.signature` — [JWT-Parts.md L7](Gaps/Terminology/JWT-Parts.md?plain=1#L7).
+
+### PDF annotation metadata and security examples
+
+- `ElementType` — [Java PDF p. 131](java.pdf#page=131).
+- `RetentionPolicy` — [Java PDF p. 131](java.pdf#page=131).
+- `ServletException` — [Java PDF p. 42](java.pdf#page=42).
+- `AtlassianCrowdAuthenticationProvider` — [Java PDF p. 117](java.pdf#page=117).
+- `UsernamePasswordToken` — [Java PDF p. 114](java.pdf#page=114).
+- `SimpleGrantedAuthorities` — [Java PDF p. 118](java.pdf#page=118).
+
+### Further PDF method-level lookup
+
+These entries retain the receiver names used in the PDF examples. Security-header APIs and reflective construction examples include legacy usage; consult current framework/JDK documentation before adopting them.
+
+- `thenAcceptAsync` — [Java PDF p. 59](java.pdf#page=59).
+- `thenApplyAsync` — [Java PDF p. 59](java.pdf#page=59).
+- `thenRunAsync` — [Java PDF p. 59](java.pdf#page=59).
+- `authentication.getCredentials` — [Java PDF p. 120](java.pdf#page=120).
+- `authentication.getPrincipal` — [Java PDF p. 120](java.pdf#page=120).
+- `getAuthority` — [Java PDF p. 119](java.pdf#page=119).
+- `formLogin` — [Java PDF p. 115](java.pdf#page=115).
+- `httpBasic` — [Java PDF p. 115](java.pdf#page=115).
+- `loginPage` — [Java PDF p. 115](java.pdf#page=115).
+- `cacheControl` — [Java PDF p. 121](java.pdf#page=121).
+- `contentTypeOptions` — [Java PDF p. 121](java.pdf#page=121).
+- `frameOptions` — [Java PDF p. 122](java.pdf#page=122).
+- `xssProtection` — [Java PDF p. 122](java.pdf#page=122).
+- `chain.doFilter` — [Java PDF p. 42](java.pdf#page=42).
+- `response.setStatus` — [Java PDF p. 114](java.pdf#page=114).
+- `classPool.makeClass` — [Java PDF p. 47](java.pdf#page=47).
+- `toClass` — [Java PDF p. 47](java.pdf#page=47).
+- `clazz.newInstance` — [Java PDF p. 53](java.pdf#page=53).
+- `context.getBean` — [Java PDF p. 34](java.pdf#page=34).
+- `argumentCaptor.capture` — [Java PDF p. 54](java.pdf#page=54).
+- `argumentCaptor.getValue` — [Java PDF p. 54](java.pdf#page=54).
+- `forClass` — [Java PDF p. 54](java.pdf#page=54).
+- `joinPoint.getSignature` — [Java PDF p. 136](java.pdf#page=136).
+- `joinPoint.proceed` — [Java PDF p. 136](java.pdf#page=136).
+- `entityManager.createQuery` — [Java PDF p. 37](java.pdf#page=37).
+- `isEqualTo` — [Java PDF p. 64](java.pdf#page=64).
+- `isNotEqualTo` — [Java PDF p. 64](java.pdf#page=64).
+- `currentTimeMillis` — [Java PDF p. 136](java.pdf#page=136).
+- `parseInt` — [Java PDF p. 25](java.pdf#page=25).
+- `rwLock.readLock` — [Java PDF p. 78](java.pdf#page=78).
+- `rwLock.writeLock` — [Java PDF p. 78](java.pdf#page=78).
+
 ## Source inventories
 
 These inventories preserve the source headings and locations so a small topic is not lost in the consolidated groups. Heading wording is retained as a locator, including historical terminology and claims that need the caveats above. Documentation-maintenance headings are included for audit completeness. PDF page numbers refer to the physical pages of the supplied files.
@@ -1394,4 +1552,5 @@ Names below were found in the source text or code. Links point to the first occu
 - Included 121 distinct source annotation spellings in the annotation lookup.
 - Reviewed all 14 embedded images in the Java PDF, including the broken-image placeholder; the principal PDF's only embedded image is its Microsoft 365 logo.
 - Grouped conceptual duplicates in the main index; retained legacy spellings, comparisons, and source locations for recall and lookup.
+- A subsequent terminology audit added 125 explicit API, configuration, acronym, and syntax entries with source locations; source-heading counts alone were not treated as proof of term-level completeness.
 - This is an inventory of the supplied material, not a claim that it contains every possible Java interview topic or that all source explanations have been fact-checked.
