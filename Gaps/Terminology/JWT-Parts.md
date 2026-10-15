@@ -23,3 +23,7 @@ _Last reviewed: 2026-10-15_
 ## Concept check for later
 
 A user changes `"role":"USER"` to `"role":"ADMIN"` without the signing key. The original signature no longer matches the changed header/payload; a correctly configured backend rejects the token. Re-encoding is not re-signing.
+
+## 2026-10-15 interview observation
+
+Habiba correctly recognized that changing a role invalidates a signed token. She said the signature is hidden and described verification as decoding with the secret. Correction to recall: **header, payload, and signature are all visible** in a compact signed JWT; the HMAC secret or asymmetric private signing key is not. Decode for reading; **verify** the signature for trust. An asymmetric verifier may use a public key. `nbf` means **not before** (she said “NPF”); `aud` identifies the intended recipient/API. Ask these again after other topics. Her expressed uncertainty about unfamiliar claims was appropriate; do not treat it as a confidence failure.
