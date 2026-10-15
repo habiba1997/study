@@ -26,3 +26,7 @@ Habiba explicitly wants to recall the strategy names. Rolling and blue-green wer
 7. In one sentence, distinguish rolling from canary.
 
 After naming, occasionally ask about tradeoffs and monitoring. Retest terms later without the table.
+
+## 2026-10-15 retest
+
+Correctly explained rolling, blue-green, and canary; identified 5% rollout as canary despite unnecessary “I think.” Called rolling “rollback strategy” initially: distinguish deployment mechanism from rollback action. Correctly described feature flags but forgot the term. Retest feature flags and canary after spacing; progress is evident.
