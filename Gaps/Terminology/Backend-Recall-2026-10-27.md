@@ -1,0 +1,31 @@
+# Backend recall — 27 October 2026
+Status: taught or clarified, not yet independently recalled. Use MCQs interleaved with new discussion topics.
+- Sentinel value: special return value representing absence; ambiguous when also valid data. OptionalInt separates presence from integer value.
+- HashSet: no iteration order guarantee.
+- LinkedHashSet: insertion order.
+- TreeSet: sorted order; comparison equality controls duplicates.
+- Comparator: external ordering rule; compare(a,b) returns negative/zero/positive.
+- Comparable: type's natural ordering via compareTo.
+- comparingInt: build comparator from int-valued extraction function.
+- thenComparing: tie-break only when earlier comparison returns zero.
+- Strategy: interchangeable behavior behind a common interface.
+- Branching: conditional paths such as if/else or switch; selection need not disappear entirely.
+- Lost update: one writer overwrites another's changes.
+- Optimistic locking: check expected version before applying update.
+- ETag / If-Match: HTTP representation version and conditional write.
+- Read Uncommitted / Read Committed / Repeatable Read / Serializable: isolation levels; learn behavior with examples.
+- Dirty read: reading uncommitted data.
+- Nonrepeatable read: same row's value changes between reads.
+- Phantom read: matching row set changes between queries.
+- Presigned URL: time-limited authorization capability for a specific object operation.
+- Multipart upload: upload independent parts, then complete assembly.
+- Keyset / cursor pagination: continue after last ordering key rather than skip a row count.
+- Composite unique constraint: uniqueness of a combination, e.g. project_id + task_number.
+- Row-level lock: serialize conflicting updates to a row.
+- Connection pool: reusable group of database connections; a connection is not itself a pool.
+- Peak traffic / under load: concise phrasing for many concurrent requests.
+- Mitigation: immediate impact reduction, distinct from root-cause fix.
+- Load testing: exercising system under controlled representative demand.
+- Changeset checksum: Liquibase validation fingerprint, not a rollback command.
+- Evidence versus hypothesis: state observations and verified mechanisms separately.
+Retest prompts live in ../Domains/Interview-Review-2026-10-27.md. Migration story in ../Domains/Migration-Ownership-Story.md.
