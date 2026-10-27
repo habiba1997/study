@@ -21,4 +21,12 @@ In live interviews (updated 2026-10-15): send batches of 2–3 discussion questi
 - [Java records and JPA projections](Domains/Java-Records-and-JPA-Projections.md): shallow immutability and count-only query shape.
 - [Interview precision and retry terminology](Terminology/Interview-Precision-and-Retry.md): nbf, idempotency key, concise technical phrasing.
 - Revisit object-oriented design patterns (including Strategy) and microservice patterns (Saga, outbox) through short scenario questions. Do not mark them mastered from an explanation.
-- Live interview checkpoint: question 10 (pricing pattern) was unclear and needs more context; questions 11–18 and the missing negative-delay max test remain to be answered. Earlier questions 1–9 may be retested even if discussed before.
+- Historical checkpoint superseded by the 27 October review below. Questions 11–19 have since been discussed; explanations are not proof of independent recall.
+
+## 2026-10-27 follow-up
+
+- [Questions 15–24 review](Domains/Interview-Review-2026-10-27.md): answers, corrections, confidence and retests; sentinel ambiguity, sets, comparators, Strategy, negative maximum, lost updates/isolation, direct uploads, pagination and per-project numbering.
+- [Migration ownership story](Domains/Migration-Ownership-Story.md): concise draft with evidence limits and technical corrections to the supplied wiki.
+- [Backend terminology recall](Terminology/Backend-Recall-2026-10-27.md): small MCQ recall targets.
+- Current scheduled format: four Cairo prompts daily; 08:00/16:00 MCQ recall, 12:00/20:00 discussion; morning email exam retained with more MCQs. Include new topics alongside retests. MCQ was the user's correction, not MCP.
+- Correct prior assessment: Habiba's HashSet first-repeat algorithm is valid under the stated contract; ambiguity concerns using -1 both as data and absence. Her earlier JPA answer intended a native aggregate projection, not fetching all tasks.
