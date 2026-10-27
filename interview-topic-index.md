@@ -67,6 +67,23 @@ The five uploaded study files were byte-for-byte identical to the repository cop
 36. [Go, C++, and platform comparisons](#36-go-c-and-platform-comparisons)
 37. [Project scenarios and engineering leadership](#37-project-scenarios-and-engineering-leadership)
 
+38. [Relational modeling, normalization, and integrity](#38-relational-modeling-normalization-and-integrity)
+39. [Advanced SQL, CTEs, and window functions](#39-advanced-sql-ctes-and-window-functions)
+40. [Index design and storage structures](#40-index-design-and-storage-structures)
+41. [Query plans, statistics, and database tuning](#41-query-plans-statistics-and-database-tuning)
+42. [Database transactions, isolation, and MVCC](#42-database-transactions-isolation-and-mvcc)
+43. [Locking, contention, and deadlocks](#43-locking-contention-and-deadlocks)
+44. [Views, materialized views, and database programming](#44-views-materialized-views-and-database-programming)
+45. [Table partitioning and data lifecycle](#45-table-partitioning-and-data-lifecycle)
+46. [Sharding and distributed data placement](#46-sharding-and-distributed-data-placement)
+47. [Replication, read replicas, and failover](#47-replication-read-replicas-and-failover)
+48. [Database scaling and system-design tradeoffs](#48-database-scaling-and-system-design-tradeoffs)
+49. [Backup, recovery, and database operations](#49-backup-recovery-and-database-operations)
+50. [Schema evolution, data migration, and CDC](#50-schema-evolution-data-migration-and-cdc)
+
+51. [Creational and structural design patterns](#51-creational-and-structural-design-patterns)
+52. [Behavioral patterns and pattern selection](#52-behavioral-patterns-and-pattern-selection)
+
 Then use [important distinctions](#important-distinctions-and-source-caveats), [practice order](#practice-order-and-session-format), and the source inventories below to locate material.
 
 ## 01 Java foundations and OOP
@@ -507,6 +524,121 @@ Sources: H, R, S, README.
 - **Jira automation:** Node.js/Python; local LLM; LangChain/MCP exploration; CSV tasks; worklog grouping; subtask resolution; assignee check; interactive create/select/skip; remote write verification; transport retries; duplication risk; task-record deduplication.
 - **Leadership:** Principal versus Senior scope; mentoring; onboarding; pair programming; PR review; standards; cross-team alignment; domain-flow explanation; architecture decisions; risk scanning; clear trade-offs; evidence-based incident narrative.
 - **Evidence literacy:** inspected code versus executed behavior; local history versus sole ownership; personal lab versus work-assigned prototype versus production; measured result versus proposed improvement; implementation limitation; ownership confirmation; no inferred latency/scale/coverage/saved-hours claim.
+
+## Database coverage expansion — 27 October 2026
+
+The index now has **52 study areas**. Original IDs 01–37 remain stable. Database notes deepen topics 13/14/11 and now receive explicit assessment areas 38–50; design patterns receive areas 51–52. Sharding, replication, recovery, and migration questions extend the source material at Habiba’s request; inclusion is not evidence of a knowledge gap or prior experience.
+
+New source files: [database notes](database.md), [database PDF](database.pdf), [second database PDF](database0.pdf), [DevOps notes](devops.md), [design-pattern notes](design.md), and [Design Patterns PDF](Design%20Patterns.pdf). Topic selection here uses the Markdown notes; the PDFs are uploaded companion references, not claimed as newly page-by-page reviewed.
+
+DevOps notes map to **28** (Git merge/rebase, branching, Jenkins/GitLab/GitHub Actions pipelines) and **29** (delivery/release). Design notes map to **26** (Observer and Strategy, alongside the existing pattern inventory). These sources do not need duplicate top-level areas.
+
+Scope boundaries: **13** covers query/JDBC basics; **11** covers Spring transaction interception; **14** covers ORM behavior. New areas cover database mechanics and design directly. Avoid double-counting one answer as independent evidence across overlapping topics.
+
+## 38 Relational modeling, normalization, and integrity
+
+Start with [database notes](database.md#normalization-and-entity-relations); include the interview extensions listed below.
+
+- **Coverage:** Keys; cardinality; ER diagrams; 1NF/2NF/3NF; functional dependencies; denormalization; CHECK/UNIQUE/FK constraints; CASCADE versus RESTRICT.
+- **First interview question:** Model customers, orders, and products: where do foreign keys and uniqueness constraints belong, and when would you denormalize?
+
+## 39 Advanced SQL, CTEs, and window functions
+
+Start with [database notes](database.md#ranking-and-partitioning); include the interview extensions listed below.
+
+- **Coverage:** Joins and NULL semantics; GROUP BY/HAVING; subqueries; recursive CTEs; temporary tables; ROW_NUMBER/RANK/DENSE_RANK; window PARTITION BY; keyset versus offset pagination.
+- **First interview question:** Return the top three salaries per department including ties. How does window PARTITION BY differ from physically partitioning a table?
+
+## 40 Index design and storage structures
+
+Start with [database notes](database.md#indexes); include the interview extensions listed below.
+
+- **Coverage:** B-tree versus hash; composite key order; covering and filtered/partial indexes; selectivity; clustered versus nonclustered indexes; pages; page splits; fill factor; write amplification. Name the database engine before describing storage behavior.
+- **First interview question:** For tenant_id = ? with a date range and ORDER BY created_at, which composite index would you try, and what would it cost on writes?
+
+## 41 Query plans, statistics, and database tuning
+
+Start with [database notes](database.md#database-tunning); include the interview extensions listed below.
+
+- **Coverage:** Estimated versus actual rows; scans/seeks; join algorithms; sorts/spills; cardinality estimates; statistics; plan cache; parameter sensitivity; wait statistics; I/O versus CPU versus blocking; SQL Server tempdb.
+- **First interview question:** A query becomes slow as data grows: how would the actual execution plan, row estimates, waits, and index usage guide your investigation?
+
+## 42 Database transactions, isolation, and MVCC
+
+Start with [database notes](database.md#transactions); include the interview extensions listed below.
+
+- **Coverage:** ACID; commit/rollback; dirty/nonrepeatable/phantom reads; lost update; write skew; read committed/repeatable read/serializable; snapshots; MVCC; serialization retries; engine-specific guarantees.
+- **First interview question:** Two concurrent transactions both see one remaining seat. Which transaction/isolation strategy prevents overselling, and what failures must the application retry?
+
+## 43 Locking, contention, and deadlocks
+
+Start with [database notes](database.md#locking); include the interview extensions listed below.
+
+- **Coverage:** Shared/exclusive locks; row/table scope; lock ordering; blocking versus deadlock; lock timeout; optimistic versus pessimistic concurrency; conditional updates; deadlock victim and safe retry.
+- **First interview question:** Two transfers lock accounts in opposite order. Explain the deadlock, how to diagnose it, and how lock ordering and transaction-level retry help.
+
+## 44 Views, materialized views, and database programming
+
+Start with [database notes](database.md#comparison-of-database-objects); include the interview extensions listed below.
+
+- **Coverage:** Views versus materialized views; refresh/freshness; stored procedures; scalar/table-valued functions; triggers; dynamic SQL and parameterization; set-based operations versus cursors.
+- **First interview question:** A dashboard runs expensive aggregates: compare a normal view, materialized view, and application cache. When would a stored procedure or trigger be justified?
+
+## 45 Table partitioning and data lifecycle
+
+Start with [database notes](database.md#partitioning-tables); include the interview extensions listed below.
+
+- **Coverage:** Range/list/hash partitioning; horizontal versus vertical partitioning; partition keys; pruning; indexes and uniqueness; retention and partition removal; operational overhead.
+- **First interview question:** Partition a large events table by month. Which queries benefit from pruning, and what happens when a query filters only by customer ID?
+
+## 46 Sharding and distributed data placement
+
+Requested database/system-design extension; use the existing migration/distributed-systems notes where relevant.
+
+- **Coverage:** Sharding versus single-database partitioning; shard keys; range/hash routing; hotspots; tenant skew; resharding; global IDs; cross-shard joins and transactions.
+- **First interview question:** A tenant-based orders database exceeds one server: choose a shard key and explain how you handle a very large tenant, rebalancing, and cross-tenant reporting.
+
+## 47 Replication, read replicas, and failover
+
+Requested database/system-design extension; use the existing migration/distributed-systems notes where relevant.
+
+- **Coverage:** Leader/follower; synchronous versus asynchronous replication; replication lag; read-after-write; promotion; failover; split-brain prevention; logical versus physical replication; replicas versus backups.
+- **First interview question:** A write succeeds on the primary but the next read from a replica misses it. Explain why, mitigation choices, and the data-loss tradeoff during failover.
+
+## 48 Database scaling and system-design tradeoffs
+
+Start with [database notes](database.md#olap-online-analytical-processing-and-oltp-online-transaction-processing-in-databases); include the interview extensions listed below.
+
+- **Coverage:** Compare replication, partitioning, and sharding; vertical/horizontal scaling; read-heavy versus write-heavy bottlenecks; relational versus document/key-value models; OLTP versus OLAP; consistency and availability during network partitions.
+- **First interview question:** Compare replication, partitioning, and sharding using one e-commerce system. Which addresses read load, write/data volume, availability, and retention? Can they be combined?
+
+## 49 Backup, recovery, and database operations
+
+Requested database/system-design extension; use the existing migration/distributed-systems notes where relevant.
+
+- **Coverage:** Full/incremental/log backups; point-in-time recovery; restore testing; RPO/RTO; replication versus recovery; capacity and growth; monitoring lag/storage/connections; maintenance tradeoffs.
+- **First interview question:** An accidental DELETE reaches every replica. How do you recover, and how do RPO/RTO affect your backup and restore plan?
+
+## 50 Schema evolution, data migration, and CDC
+
+Requested database/system-design extension; use the existing migration/distributed-systems notes where relevant.
+
+- **Coverage:** Expand/contract migrations; backfill batching; checkpoints; reconciliation; idempotent reruns; dual-write failure windows; CDC; cutover and rollback; compatibility during rolling deployment.
+- **First interview question:** Move a large populated table to a new schema while writes continue. Explain backfill, change capture, validation, cutover, and recovery after a partial failure.
+
+## 51 Creational and structural design patterns
+
+Sources: [design notes](design.md), [architecture pattern reference](architecture-patterns-cheat-sheet.md), and [Design Patterns PDF](Design%20Patterns.pdf).
+
+- **Coverage:** Factory, Builder, Singleton, Prototype; Adapter, Decorator, Proxy, Facade; intent, tradeoffs, and real code examples. Distinguish a GoF object pattern from an architectural pattern.
+- **First interview question:** Compare Factory, Builder, Adapter, Decorator, and Proxy using one application: what problem does each solve?
+
+## 52 Behavioral patterns and pattern selection
+
+Sources: [design notes](design.md) (Observer and Strategy) and [architecture pattern reference](architecture-patterns-cheat-sheet.md).
+
+- **Coverage:** Strategy, Observer, changing algorithms at runtime, event/listener notifications, coupling, testing, when a simple conditional is sufficient.
+- **First interview question:** Compare Strategy and Observer in a notification or payment workflow. How do you decide whether a pattern helps or adds unnecessary complexity?
 
 ## Important distinctions and source caveats
 
