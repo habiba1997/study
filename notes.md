@@ -12,6 +12,29 @@ If makeSound() were static in both classes(Dog and Animal), It would print “An
   - Separate chaining means the bucket can contain multiple entries. Traditionally, think of each bucket as pointing to a linked list
   - open addressing: If the calculated slot is occupied, you probe for another slot, less pointer overhead but the downside is that performance gets worse as the table becomes crowded.
 - Hash table = general data-structure concept. 
+- **Field access** is determined by the **reference type** (compile time).
+- **Methods can be overridden**. **Method calls** are determined by the **actual object type** (runtime polymorphism).
+- Vercel is a cloud platform and frontend-as-a-service (FaaS) company that lets developers build, deploy, and scale web applications quickly without managing underlying servers.
+- Kubernetes vs. Traditional Code Sandboxes (For AI & Untrusted Code)
+
+When running untrusted code—such as code generated on the fly by an AI agent—traditional containers (like standard Docker containers used in Kubernetes) share the host machine's Linux kernel. If an AI agent generates malicious code, it could break out of the container and compromise the host. Sanboxes are miliseonds to start while kuberneters takes seconds to minutes. 
+- Dedicated Code Sandbox : Built for ephemeral, isolated code execution. Uses kernel-level isolation or microVMs.
+- k8s: Built for stateless, long-running microservices with predictable traffic.Shares the host OS kernel; Startup Speed: Seconds to minutes (due to pulling images, scheduling, and pod initialization).
+- In Java, static methods cannot be overridden. If you define a static method in a child class with the exact same signature as a static method in the parent class, it results in method hiding, not overriding.
+If you attempt to use the @Override annotation on a static method, the compiler will throw a compile-time error stating that the method cannot override a static method from its superclass.
+
+What is Method Hiding?
+
+Unlike instance methods which rely on dynamic (runtime) binding, static methods use static (compile-time) binding. This means the Java compiler decides which method to run based on the reference type of the variable at compile time, rather than the actual object type at runtime.
+
+Direct Comparison: Overriding vs. Hiding
+
+| Feature | Instance method (overriding) | Static method (method hiding) |
+| --- | --- | --- |
+| Binding time | Runtime (dynamic binding) | Compile-time (static binding) |
+| Resolution rule | Actual object type | Reference variable type |
+| Polymorphism | Yes | No |
+
 
 ## 2026-10-21 — Workers interview follow-up
 
