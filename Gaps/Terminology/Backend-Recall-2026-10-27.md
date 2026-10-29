@@ -49,3 +49,13 @@ Retest prompts live in ../Domains/Interview-Review-2026-10-27.md. Migration stor
 - Liquibase changeset: tracked database change. Changeset checksum: validation fingerprint, not rollback.
 - Concise incident template (adapt only to verified facts): "I investigated connection-pool saturation under peak traffic, coordinated a temporary mitigation, and traced the underlying configuration issue." Do not claim exact forgotten wording or unverified resolution.
 Spaced recall: revisit small terms every 2–3 days within existing sessions, mixed with new areas across all 52 topics; particularly Java versions, Spring Boot/beans, OOP. Teach gaps before testing harder variations. Detailed evidence: ../Domains/Interview-Review-2026-10-29.md.
+
+## Inventory concurrency clarification — 29 October
+User correctly proposed enforcing sufficient stock in the database regardless of arrival order. Remaining gaps: believes single-statement operations have no transaction; mixes explicit row locking with isolation; believes optimistic checks require Repeatable Read.
+- Every SQL statement executes in a transaction. Autocommit gives a single statement its own transaction. Explicit transaction needed to group SELECT FOR UPDATE + subsequent UPDATE, or stock decrement + order insert.
+- Atomic conditional decrement: UPDATE inventory SET quantity=quantity-:requested WHERE product_id=:id AND :requested>0 AND quantity>=:requested RETURNING quantity. Validate positive integer quantity. At Read Committed, competing updates wait and re-evaluate condition on updated row; two requests7 and3 against10 can both succeed.7 and4 cannot both succeed.
+- SELECT FOR UPDATE locks selected existing rows until commit/rollback; ordinary MVCC reads can proceed, conflicting writers wait. Lock requested in application SQL, enforced centrally by DB across pods. Not a synchronized isolation setting.
+- Optimistic locking: expected version predicate works at Read Committed; increment version on success, zero matching rows conflict/missing. Testing old quantity is possible but misses changed-and-restored values (ABA); version preferable. It still takes normal write locks during UPDATE.
+- Stale assignment SET quantity=7 from old10 vs relative decrement SET quantity=quantity-3: serializing stale constants still loses changes.
+- UPDATE RETURNING returns resulting row values, not a concurrency mechanism by itself.
+- Email exams now all MCQ revisiting gaps/terminology; next exam prioritizes these five terms, then indexes and other gaps.
