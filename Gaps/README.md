@@ -30,3 +30,9 @@ In live interviews (updated 2026-10-15): send batches of 2–3 discussion questi
 - [Backend terminology recall](Terminology/Backend-Recall-2026-10-27.md): small MCQ recall targets.
 - Current scheduled format: four Cairo prompts daily; 08:00/16:00 MCQ recall, 12:00/20:00 discussion; morning email exam retained with more MCQs. Include new topics alongside retests. MCQ was the user's correction, not MCP.
 - Correct prior assessment: Habiba's HashSet first-repeat algorithm is valid under the stated contract; ambiguity concerns using -1 both as data and absence. Her earlier JPA answer intended a native aggregate projection, not fetching all tasks.
+
+## 2026-10-29 grouped review
+
+- [Concurrency, streams, uploads, pagination and messaging review](Domains/Interview-Review-2026-10-29.md): Q25–32 evidence and concrete worked examples; no mastery percentages from teaching.
+- [Vocabulary and recall updates](Terminology/Backend-Recall-2026-10-27.md): include precise English incident phrases and Kafka/RabbitMQ terms; revisit every 2–3 days within existing sessions.
+- Vary across all 52 topics, especially Java versions, Spring Boot/beans/lifecycle, OOP, and the technical interview scope. Prefer Kafka in upcoming messaging examples while teaching RabbitMQ distinctions.
