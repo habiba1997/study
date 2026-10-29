@@ -59,3 +59,17 @@ User correctly proposed enforcing sufficient stock in the database regardless of
 - Stale assignment SET quantity=7 from old10 vs relative decrement SET quantity=quantity-3: serializing stale constants still loses changes.
 - UPDATE RETURNING returns resulting row values, not a concurrency mechanism by itself.
 - Email exams now all MCQ revisiting gaps/terminology; next exam prioritizes these five terms, then indexes and other gaps.
+
+## Streams, design choices and replicas — further 29 October gaps
+- Correct mistaken claim: O(n log n) grows FASTER than O(n), not lower. Typical increasing growth: O(1), O(log n), O(n), O(n log n), O(n^2), O(2^n), O(n!). Asymptotic growth, not universal wall-clock ranking.
+- Streams lazy: intermediate filter/map/sorted construct pipeline; terminal operations such as collect/forEach/min trigger processing. Short-circuit and optimized operations may avoid traversal; do not promise every lambda runs.
+- min(comparator) O(n) vs full comparison sort O(n log n) for minimum-only task; comparator cost assumed constant. Pipeline with k survivors O(n + k log k).
+- Composition/inheritance are design mechanisms, not alternative GoF pattern names; scenario MCQs should ask mechanism separately from pattern intent. Four options, exactly one answer, even though the user informally requested five possibilities.
+- Composition provides replaceable collaborators, narrower exposed API, easier isolated tests and less coupling to parent internals; inheritance fits true substitutability and designed extension points (e.g. Template Method). No blanket composition always better. Java class extends one superclass; interface implementations may be multiple.
+- Partition tolerance: handling network communication failure between distributed nodes; CAP does not imply remaining fully available and strongly consistent simultaneously in a partition. Not table partitioning or Kafka topic partitioning.
+- CQRS = Command Query Responsibility Segregation; CQS (Command Query Separation) related but distinct acronym.
+- Asynchronous replication: WAL transfer and replay take time; commit need not wait for replica to apply. No universal isUpdating boolean tells application whether its write is visible. Position (LSN) can establish catch-up for a particular write.
+- Simple primary stickiness: after commit store per-user/resource primaryUntil; route affected reads primary until deadline. TTL is heuristic, not consistency guarantee; share state across pods or carry trusted token.
+- Stronger read-your-writes: obtain a WAL position after commit on primary (covering that commit), require selected replica replay position >= it; use fresh read snapshot after check; bounded wait or primary fallback, don't blindly sleep. Physical topology/failover need handling.
+- synchronous_commit=remote_apply with configured synchronous standbys waits for replay by required standbys; not arbitrary replicas. Added latency/availability trade-off.
+MCQs should include these basics before harder variations. Explain new terms before evaluating recall.
