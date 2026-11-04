@@ -100,3 +100,6 @@ Implementation descriptions are typical, not exclusive requirements. Java implem
 |Singleton|Control access to one instance|Neither composition nor inheritance defines it|
 
 Practice: first explain each pattern with a small Java scenario; later ask one short scenario at a time to identify the pattern, then composition/inheritance role, then tradeoff. Contrast Adapter/Proxy/Decorator, Strategy/State/Template Method, Factory Method/Abstract Factory/Builder, Observer/Mediator. 'Abstract Strategy' is not a separate GoF pattern: clarify Abstract Factory versus a Strategy abstract class. Do not start an exam until explicitly requested.
+
+## Bridge learning preference
+- Bridge remains a learning gap: user requests a video explanation plus a concrete worked example before assessment. Use two independent dimensions (report type and renderer), then contrast Bridge with Strategy. Video not yet selected or watched; do not mark understood from prior explanation alone.
