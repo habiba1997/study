@@ -103,3 +103,13 @@ Practice: first explain each pattern with a small Java scenario; later ask one s
 
 ## Bridge learning preference
 - Bridge remains a learning gap: user requests a video explanation plus a concrete worked example before assessment. Use two independent dimensions (report type and renderer), then contrast Bridge with Strategy. Video not yet selected or watched; do not mark understood from prior explanation alone.
+
+## Revised interview scope and question style
+
+Only test these GoF design patterns: Strategy, Adapter, Proxy, Decorator, Facade, Observer, Command, Factory, Abstract Factory, Builder, Prototype, Singleton. Exclude Template Method, Composite, State, and other unrequested patterns from exams.
+
+High-priority terms to know and apply: Saga, Strangler Fig, publisher acknowledgment/publisher confirms, exponential backoff and jitter, backpressure, transactional outbox, cache-aside versus invalidation, Kafka versus RabbitMQ, deployment strategies, database indexes, Spring transactions.
+
+Teach in context, then test by scenario rather than acronym recall: CDC/change data capture, concurrent outbox processing, bulkhead, cache stampede. Clarify publisher confirmation is broker acceptance, not consumer processing. Explain two pods claiming the same outbox event; exponential retry intervals plus random jitter; cache stampede from many simultaneous misses after expiry.
+
+Future design-pattern questions must include concrete Java/business scenario, requirements and tradeoffs; avoid vague one-line clues. Start revision with Strategy, then compare Factory, Abstract Factory, Adapter, Proxy and Decorator. User prefers concise teaching and one short question at a time for revision, not a new full exam unless requested.
