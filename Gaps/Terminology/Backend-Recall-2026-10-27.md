@@ -73,3 +73,11 @@ User correctly proposed enforcing sufficient stock in the database regardless of
 - Stronger read-your-writes: obtain a WAL position after commit on primary (covering that commit), require selected replica replay position >= it; use fresh read snapshot after check; bounded wait or primary fallback, don't blindly sleep. Physical topology/failover need handling.
 - synchronous_commit=remote_apply with configured synchronous standbys waits for replay by required standbys; not arbitrary replicas. Added latency/availability trade-off.
 MCQs should include these basics before harder variations. Explain new terms before evaluating recall.
+
+## November 4: explicit recurring recall targets
+- Intermediate operation: returns another Stream, building a lazy pipeline. Examples: filter, map, sorted. sorted is stateful.
+- Terminal operation: produces a result or side effect and consumes the stream. Examples: min, collect, forEach, count. Processing may short-circuit or be optimized away; do not promise every lambda executes.
+- Minimum-only on unsorted n items: min(comparator), O(n) assuming constant-cost comparison. Full comparison sorting: typically O(n log n). sorted is intermediate; min is terminal.
+- WAL = Write-Ahead Log. Log records describing changes must be persisted before corresponding modified data pages are written to disk. Supports crash recovery; PostgreSQL physical replicas receive/replay WAL. Revisit expansion and mechanism every 2–3 study sessions, using fresh wording; no new reminder schedule.
+- Composition: delegate through a field, expose only chosen methods; replace implementations through a common contract. Inheritance: subtype must preserve parent behavioral contract, not merely implement method signatures. Public inherited methods cannot be hidden by reducing visibility; private methods and constructors are not inherited. Wanting all methods is not sufficient justification for inheritance.
+- Pattern-specific practice matrix: ../../interview-prep/priority-knowledge-gaps-2026-11-04.md.
