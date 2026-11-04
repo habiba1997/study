@@ -32,3 +32,27 @@ Do not mark a topic mastered after one correct MCQ. Retest using scenarios and f
 ## Other misconceptions
 - Authentication verifies identity; authorization checks permissions.
 - StringBuilder and StringBuffer are mutable; StringBuffer methods are synchronized.
+
+## Additional terminology gaps — November 4 follow-up
+
+Use short-answer terminology recall plus real production scenarios. Record Sure / Unsure / Guessing separately from correctness.
+
+- CDC (Change Data Capture): transaction log, Debezium, polling versus CDC outbox.
+- Publisher confirms: how a producer knows a broker accepted a message.
+- Concurrent outbox claiming across pods: FOR UPDATE SKIP LOCKED, leases, locking, duplicate publication.
+- Outbox retry and crash window: publish succeeds, marking published fails, duplicate delivery.
+- Consumer deduplication and idempotency: event ID unique constraint, atomic business write plus processed marker.
+- DLQ (dead-letter queue): poison messages, invalid payload/schema, retries exhausted, downstream outages; diagnosis and replay.
+- Exponential backoff and jitter: when and why retries are delayed.
+- Circuit breaker in Spring Boot: Resilience4j states, failure thresholds, fallbacks.
+- Bulkhead: thread-pool or semaphore isolation and resource exhaustion.
+- Backpressure: RabbitMQ prefetch, queues, producer throttling.
+- Primary versus master terminology: same conventional writable database role; confirm distinction and replication architecture.
+- Replication lag and read-your-writes: route consistency-sensitive reads to primary.
+- Delivery guarantees: at-most-once, at-least-once, exactly-once effect; distinguish broker acceptance from actual recipient delivery.
+- System design constraints: throughput, cost, reliability, infrastructure, privacy, latency, not merely field constraints.
+- p99 latency, throughput and recovery time: practical interpretation in scenarios.
+
+## Exam scope preference
+
+Deprioritize acronym memorization for SLO, RPO and RTO. Focus on day-to-day developer terminology and practical system-design decisions. Do not create the next exam until explicitly requested.
