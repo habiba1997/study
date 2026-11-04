@@ -56,3 +56,11 @@ Use short-answer terminology recall plus real production scenarios. Record Sure 
 ## Exam scope preference
 
 Deprioritize acronym memorization for SLO, RPO and RTO. Focus on day-to-day developer terminology and practical system-design decisions. Do not create the next exam until explicitly requested.
+
+## Future interactive interview format
+- One question at a time; user answers in one word, two words, or at most one sentence.
+- Scenario-based choice of Kafka versus RabbitMQ; explain why the selected broker fits the use case.
+- Scenario-based selection of Saga, transactional outbox, CDC, CQRS, and database-per-service patterns.
+- High-priority terminology: idempotent consumer — processing duplicate deliveries without duplicating the business effect; test event-ID deduplication and transaction/unique-constraint design.
+- Ask for Sure / Unsure / Guessing with every answer; grade accuracy and confidence separately, then follow up on weak concepts.
+- Do not begin until user explicitly requests the exam.
