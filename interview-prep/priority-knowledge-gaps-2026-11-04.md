@@ -113,3 +113,12 @@ High-priority terms to know and apply: Saga, Strangler Fig, publisher acknowledg
 Teach in context, then test by scenario rather than acronym recall: CDC/change data capture, concurrent outbox processing, bulkhead, cache stampede. Clarify publisher confirmation is broker acceptance, not consumer processing. Explain two pods claiming the same outbox event; exponential retry intervals plus random jitter; cache stampede from many simultaneous misses after expiry.
 
 Future design-pattern questions must include concrete Java/business scenario, requirements and tradeoffs; avoid vague one-line clues. Start revision with Strategy, then compare Factory, Abstract Factory, Adapter, Proxy and Decorator. User prefers concise teaching and one short question at a time for revision, not a new full exam unless requested.
+
+
+## Java numeric types and conversions — added Nov 6, 2026
+- HIGH PRIORITY: int vs long (32-bit vs 64-bit), widening int->long automatic, narrowing long->int explicit cast and overflow risk.
+- Primitive vs wrappers: int/Integer, long/Long, boxing/unboxing, null-unboxing NPE, Integer cannot directly be assigned to Long; use longValue() or explicit conversion.
+- double/float vs BigDecimal; precision, immutable BigDecimal, add() returns a new value, compareTo() vs equals(), converting BigDecimal to primitive with longValueExact()/intValueExact().
+- Practice compilation and runtime outcomes of mixed primitive/wrapper conversions, method overloads, numeric literals, and collection generics.
+- Java Streams gap: groupingBy, reducing, mapping, sum BigDecimal by customer; contrast with correct HashMap for-loop solution.
+- Interview practice Nov 6: correctly proposed one-pass HashMap aggregation of customer order BigDecimal totals; O(n) average time and O(k) space. Confidence not stated; don't infer.
