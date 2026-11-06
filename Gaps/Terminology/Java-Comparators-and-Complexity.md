@@ -39,3 +39,9 @@ Teach forgotten terms briefly before retesting. Keep correctness separate from c
 - Spaced recall (one at a time): (a) Find overflow in a subtraction comparator with extreme int costs and fix it. (b) Write cheapest qualified worker with `min`, alphabetical email tie, and no-match handling. (c) Give sorting vs `min` costs and distinguish n from matching m.
 
 Explanation and code: [notes.md](../../notes.md#2026-10-21--workers-interview-follow-up).
+
+## 2026-11-06: hands-on practice required
+
+Comparable is currently understood from explanation, but needs manual implementation to stick. External Comparator creation, comparing/comparingInt, ascending/descending ordering and using sort/stream.sorted remain practice gaps. Priority: important. Status: open, not independently demonstrated.
+
+Use the [five-task hands-on sorting lab](../Hands-On/Java-Sorting-Comparable-Comparator-Streams.md), one task at a time. Write non-stream and stream versions, then repeat from memory after 2–3 days.
