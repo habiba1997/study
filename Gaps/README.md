@@ -36,3 +36,7 @@ In live interviews (updated 2026-10-15): send batches of 2–3 discussion questi
 - [Concurrency, streams, uploads, pagination and messaging review](Domains/Interview-Review-2026-10-29.md): Q25–32 evidence and concrete worked examples; no mastery percentages from teaching.
 - [Vocabulary and recall updates](Terminology/Backend-Recall-2026-10-27.md): include precise English incident phrases and Kafka/RabbitMQ terms; revisit every 2–3 days within existing sessions.
 - Vary across all 52 topics, especially Java versions, Spring Boot/beans/lifecycle, OOP, and the technical interview scope. Prefer Kafka in upcoming messaging examples while teaching RabbitMQ distinctions.
+
+## 2026-11-06 hands-on sorting gap
+
+- [Comparable, Comparator and streams lab](Hands-On/Java-Sorting-Comparable-Comparator-Streams.md): important, open hands-on gap. Comparable is understood from the explanation but needs independent implementation; external comparators, comparing/comparingInt, reversed, sort and sorted need repeated coding practice. Complete one task at a time, both without and with streams; do not mark mastered from reading.
