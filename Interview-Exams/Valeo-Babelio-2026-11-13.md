@@ -50,7 +50,7 @@ for right = 0..length-1:
 ### 6. Inorder traversal
 **Question:** Find the inorder traversal of the pictured tree.
 
-**Answer:** `ACEDBHIGE` (the matching option in the screenshot). **Why:** Visit left subtree, node, then right subtree. Reconstruct the tree before choosing an option; OCR of the image is incomplete.
+**Answer:** `ACEDBFHIG`. **Why:** Left subtree `ACEDB`, root `F`, right subtree `HIG`. None of the four displayed options matches this traversal, so the multiple-choice item appears defective.
 
 ### 7. Full binary tree leaves
 **Question:** A full binary tree has `n` internal nodes. How many leaves?
