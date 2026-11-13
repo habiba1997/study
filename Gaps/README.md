@@ -40,3 +40,8 @@ In live interviews (updated 2026-10-15): send batches of 2–3 discussion questi
 ## 2026-11-06 hands-on sorting gap
 
 - [Comparable, Comparator and streams lab](Hands-On/Java-Sorting-Comparable-Comparator-Streams.md): important, open hands-on gap. Comparable is understood from the explanation but needs independent implementation; external comparators, comparing/comparingInt, reversed, sort and sorted need repeated coding practice. Complete one task at a time, both without and with streams; do not mark mastered from reading.
+
+## 2026-11-13 Valeo exam follow-up
+
+- [Valeo exam practice gaps](Domains/Valeo-Exam-Follow-Up-2026-11-13.md): unassessed topic targets plus observed FizzBuzz and SQL errors; retest before scoring.
+- [Complete exam question bank and answer key](../Interview-Exams/Valeo-Babelio-2026-11-13.md): 26 distinct prompts with short explanations. Repeated screenshots are combined.
