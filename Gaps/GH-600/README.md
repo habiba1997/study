@@ -13,3 +13,11 @@ These are personal recall notes for the **GitHub Certified: Agentic AI Developer
 **Status:** Explained on 2026-11-16; revisit with a short recall question before marking understood.
 
 **Source:** [Foundations of Agentic AI in GitHub: GitHub as the system of record and control plane](https://learn.microsoft.com/en-gb/training/modules/foundations-agentic-ai/4-describe-github-system-record-control-plane)
+
+## Human accountability and traceability
+
+**Recall prompt:** If an agent performs the work, who owns the outcome, and what evidence should be kept?
+
+**Note:** Agentic systems change who performs work, but not who owns outcomes. Human teams remain accountable. They need to guard against common anti-patterns and make the agent's work traceable through GitHub-native records such as plans, branches, commits, pull requests, review decisions, workflow runs, artifacts, and relevant logs.
+
+**Status:** Saved for later review on 2026-11-16; not yet assessed.
